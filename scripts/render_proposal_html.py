@@ -7,6 +7,7 @@ import argparse
 import html
 import os
 import re
+import sys
 from pathlib import Path, PurePosixPath
 
 
@@ -277,13 +278,23 @@ def render_markdown_body(submission_dir: Path, markdown: str, language: str = "z
             flush_paragraph()
             close_list()
             alt = html.escape(image_match.group(1).strip() or "proposal figure")
-            src = normalize_image_src(submission_dir, image_match.group(2).strip())
-            blocks.append(
-                '<figure class="proposal-figure">'
-                f'<img src="{html.escape(src)}" alt="{alt}">'
-                f"<figcaption>{alt}</figcaption>"
-                "</figure>"
-            )
+            raw_src = image_match.group(2).strip()
+            try:
+                src = normalize_image_src(submission_dir, raw_src)
+                blocks.append(
+                    '<figure class="proposal-figure">'
+                    f'<img src="{html.escape(src)}" alt="{alt}">'
+                    f"<figcaption>{alt}</figcaption>"
+                    "</figure>"
+                )
+            except (ValueError, OSError) as exc:
+                blocks.append(
+                    '<figure class="proposal-figure proposal-figure-missing">'
+                    f'<div class="missing-image" role="img" aria-label="{alt}">'
+                    f"[图片无法读取：{html.escape(str(exc))}]</div>"
+                    f"<figcaption>{alt}</figcaption>"
+                    "</figure>"
+                )
             index += 1
             continue
 
@@ -341,7 +352,16 @@ def render_html(
     translation_href: str | None = None,
 ) -> str:
     proposal_path = submission_dir / proposal_name
-    metadata, body = parse_front_matter(proposal_path.read_text(encoding="utf-8"))
+    try:
+        raw_text = proposal_path.read_text(encoding="utf-8")
+    except UnicodeDecodeError as exc:
+        print(
+            f"[render_proposal_html] {proposal_path} had encoding issues ({exc}); "
+            "rendering with replacement characters.",
+            file=sys.stderr,
+        )
+        raw_text = proposal_path.read_text(encoding="utf-8", errors="replace")
+    metadata, body = parse_front_matter(raw_text)
     title = metadata.get("title") or submission_dir.name
     summary = metadata.get("summary", "")
     language = metadata.get("language", "zh")
