@@ -191,6 +191,7 @@ agent 生成的AI治理建议必须遵守数据最小化、公开来源、可解
 - 完整机器索引：见 `sources.json`、`metrics.json`、`compliance_matrix.json`、`standard_matrix.json` 与 `design_depth_matrix.json`
 - 本节书目入口依据场地包登记，完整出处和许可见结构化来源清单 [source:SITE-PACKAGE]
 
+
 ## 全球案例对标
 
 本方案对标全球范围内与本主题最相关的城市实践，提取可直接迁移到本场地的设计策略。以下案例均来自公开资料，不构成官方合作或授权关系。
