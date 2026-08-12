@@ -6,16 +6,16 @@
   },
   "metrics": {
     "site_area_sqm": {
-      "status": "known",
+      "status": "provisional",
       "value": 11412825.386,
       "unit": "sqm",
       "source_files": [
         "geometry/site_boundary.geojson"
       ],
       "formula": "polygon_area(submitted_site_boundary)",
-      "confidence": "high",
+      "confidence": "low",
       "assumptions": [
-        "Trusted official boundary is present in the site package."
+        "Boundary is PROVISIONAL (source: DATA-SRC-PROVISIONAL-BOUNDARIES-20260605); not an official redline or precise-area basis. Recalculation required when official geometry is supplied."
       ]
     },
     "building_footprint_area_sqm": {
@@ -75,6 +75,42 @@
       "formula": "count(key_detailed_design_areas)",
       "confidence": "high",
       "assumptions": []
+    },
+    "land_use_composition": {
+      "status": "known_from_provisional",
+      "confidence": "low",
+      "note": "Composition derived from agent-generated land_use.geojson (provisional). Percentages are of the provisional site area and must be recalculated when official boundary is supplied. Distinct from green_ratio (12.34%, from green_space.geojson layer) and public_space_ratio (7.33%): land_use '公园绿地与开敞空间' is a land-use CLASSIFICATION, while green_ratio measures the dedicated green_space layer.",
+      "categories": [
+        {
+          "id": "LU-001",
+          "name_zh": "AI研发创新用地",
+          "land_use_code": "0802",
+          "area_sqm": 2674562.492,
+          "pct_of_site": 23.4347
+        },
+        {
+          "id": "LU-002",
+          "name_zh": "公园绿地与开敞空间",
+          "land_use_code": "1401",
+          "area_sqm": 2589339.239,
+          "pct_of_site": 22.688
+        },
+        {
+          "id": "LU-003",
+          "name_zh": "产业服务与商业服务用地",
+          "land_use_code": "05",
+          "area_sqm": 3366138.181,
+          "pct_of_site": 29.4943
+        },
+        {
+          "id": "LU-004",
+          "name_zh": "社区服务与配套用地",
+          "land_use_code": "0702",
+          "area_sqm": 2782792.823,
+          "pct_of_site": 24.383
+        }
+      ],
+      "total_pct_of_site": 100.0
     }
   }
 }

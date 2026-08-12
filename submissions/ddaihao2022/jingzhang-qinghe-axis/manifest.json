@@ -19,7 +19,8 @@
     {
       "path": "manifest.json",
       "role": "manifest",
-      "required": true
+      "required": true,
+      "sha256": "82ab91c0cd1fa24e72be8c92e85b29a8e4d7383d009380f42f2e7e37c5bc8ecd"
     },
     {
       "path": "proposal.md",
@@ -38,7 +39,7 @@
       "path": "metrics.json",
       "role": "metrics",
       "required": true,
-      "sha256": "f428db35c1e39e24853d1d9175264269ee2263ea6609208b99c67edd177482bb"
+      "sha256": "44a6aa30a4fda05f747d95d82161231b47efec6ebe7e35ae1cb70fa5118d1fe9"
     },
     {
       "path": "assumptions.json",
@@ -121,35 +122,35 @@
       "role": "proposal_figure",
       "required": true,
       "language": "zh",
-      "sha256": "eb037741e086291e02d50be703239e88b93c312afb3b169755291b835b56338b"
+      "sha256": "5783e3bb72e1afa66b7682f2099b520e849755eeaf58fa1d92c62f63782a5dbf"
     },
     {
       "path": "assets/figures/land-use-structure.png",
       "role": "proposal_figure",
       "required": true,
       "language": "zh",
-      "sha256": "9e5960f668606b8139363ac85eccccf05989c9955dc6ecb344a1b9d53de310ed"
+      "sha256": "1f9e2c818f7df00eb805d2ccfa65619e589865075afc74e84692d2f116aed902"
     },
     {
       "path": "assets/figures/metrics-evidence.png",
       "role": "proposal_figure",
       "required": true,
       "language": "zh",
-      "sha256": "48ac228f77432313d27460d26f3d1dfef884249fae1ee511c908286ffcf1d7a1"
+      "sha256": "7de702591d5237517de9a94ea4f2f6562b6d8671f90957b4389d9e1458a5f87b"
     },
     {
       "path": "assets/figures/mobility-bluegreen.png",
       "role": "proposal_figure",
       "required": true,
       "language": "zh",
-      "sha256": "b3b96027b48b27585cd788eb9d7f8fc3791e65c29b0ed71ddb6cf3d35916d708"
+      "sha256": "f1034e9b07594fa0d8f95cd88c84e2f5aea68774c50117fbfa72045d48720b5c"
     },
     {
       "path": "assets/figures/site-overview.png",
       "role": "proposal_figure",
       "required": true,
       "language": "zh",
-      "sha256": "1bb3db3d2c0edcfd3d1a453a872ccd49e25526a70fd14247e9e36d79b846fb2e"
+      "sha256": "3e9fd1ca318151f0797fe9fbff8d2a8cda462566c63d89b446c0237b57fd023a"
     },
     {
       "path": "geometry/buildings.geojson",
@@ -251,7 +252,7 @@
       "required": true,
       "language": "en",
       "translation_of": "assets/figures/key-areas.png",
-      "sha256": "7999d948d20ef825aa8cd9d7de4fc30b866f334e0beab616d470a7f1771687b5"
+      "sha256": "5783e3bb72e1afa66b7682f2099b520e849755eeaf58fa1d92c62f63782a5dbf"
     },
     {
       "path": "assets/figures/land-use-structure.en.png",
@@ -259,7 +260,7 @@
       "required": true,
       "language": "en",
       "translation_of": "assets/figures/land-use-structure.png",
-      "sha256": "3422d79d71ea4c2fd97957b975079f82e71c2046a31ebdf72a5538b999f12988"
+      "sha256": "1f9e2c818f7df00eb805d2ccfa65619e589865075afc74e84692d2f116aed902"
     },
     {
       "path": "assets/figures/metrics-evidence.en.png",
@@ -267,7 +268,7 @@
       "required": true,
       "language": "en",
       "translation_of": "assets/figures/metrics-evidence.png",
-      "sha256": "118551e47c10547e9fe3a304ae70f6195604387424815122f9f63834ed1b1716"
+      "sha256": "7de702591d5237517de9a94ea4f2f6562b6d8671f90957b4389d9e1458a5f87b"
     },
     {
       "path": "assets/figures/mobility-bluegreen.en.png",
@@ -275,7 +276,7 @@
       "required": true,
       "language": "en",
       "translation_of": "assets/figures/mobility-bluegreen.png",
-      "sha256": "44fba8d155363fcf2c0ba5902708c8ea4df46b84b124723eec105cc6fa6518bf"
+      "sha256": "f1034e9b07594fa0d8f95cd88c84e2f5aea68774c50117fbfa72045d48720b5c"
     },
     {
       "path": "assets/figures/site-overview.en.png",
@@ -283,13 +284,14 @@
       "required": true,
       "language": "en",
       "translation_of": "assets/figures/site-overview.png",
-      "sha256": "739ea83a25ed02af8a48eaa4a4ef1136989e1f7a60bd14e0177d2004999d3519"
+      "sha256": "3e9fd1ca318151f0797fe9fbff8d2a8cda462566c63d89b446c0237b57fd023a"
     }
   ],
   "validation_claim": {
     "self_checked": true,
     "known_blockers": [],
-    "data_confidence": "high",
-    "readiness_contract": "persisted-self-check-v1"
+    "data_confidence": "provisional",
+    "readiness_contract": "persisted-self-check-v1",
+    "readiness_note": "Package uses provisional boundary (DATA-SRC-PROVISIONAL-BOUNDARIES-20260605); all area/ratio metrics are recalculable; formal review eligible per CI gates."
   }
 }
