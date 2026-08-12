@@ -19,8 +19,7 @@
     {
       "path": "manifest.json",
       "role": "manifest",
-      "required": true,
-      "sha256": "82ab91c0cd1fa24e72be8c92e85b29a8e4d7383d009380f42f2e7e37c5bc8ecd"
+      "required": true
     },
     {
       "path": "proposal.md",
