@@ -106,7 +106,7 @@ This package builds the following L0–L5 ecosystem for its domain:
 | L1 Data elements | Spending heat, food-safety traceability, heritage-brand reputation (PIPL-compliant anonymized) | 食尚数据看板 + 食安平台 | 政府数据开放平台 + 第三方审计 |
 | L2 Algorithm platform | Queue prediction, supply-demand matching, food-safety risk detection | 食尚市集算法舱 | 开源社区 + 标准组织 |
 | L3 Application scenes | Smart recommendation, pickup booking, zero-waste dispatch, heritage-brand livestream | 三处重点片区 + 公共空间 | 场景运营方 + 企业合作 |
-| L4 Governance loop | Public feedback -> food-safety optimization -> impact tracking | 公众反馈点 + 治理指挥中心 | 街道/区政府 + 社区组织 |
+| L4 Governance loop | Public feedback -> food-safety optimization -> impact tracking | 公众反馈点 + 食安共治站 | 街道/区政府 + 社区组织 |
 | L5 International network | Global gastronomy-city alliance, heritage-brand international exchange | 海淀食尚生活节 + 年度活动周 | 国际交流机构 + 企业协会 |
 
 ## Implementation Matrix & Test Scenarios
