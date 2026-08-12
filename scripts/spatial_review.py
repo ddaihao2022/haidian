@@ -88,8 +88,8 @@ class SpatialReport:
         }
 
 
-def load_json(path: Path, *, default: Any = None) -> Any:
-    """Read and parse a JSON file, returning ``default`` on any read/parse error.
+def load_json(path: Path) -> Any:
+    """Read and parse a JSON file, returning ``None`` on any read/parse error.
 
     Submission geometry files are untrusted contributor data. A single malformed
     file (bad JSON, stray BOM, wrong encoding) must not crash this trusted review
@@ -99,7 +99,7 @@ def load_json(path: Path, *, default: Any = None) -> Any:
         return json.loads(path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, UnicodeDecodeError, OSError) as exc:
         print(f"[spatial_review] failed to parse {path}: {exc}", file=sys.stderr)
-        return default
+        return None
 
 
 def load_schema(repo_root: Path, name: str) -> dict | None:

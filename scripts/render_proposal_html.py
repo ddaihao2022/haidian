@@ -52,6 +52,10 @@ def parse_front_matter(text: str) -> tuple[dict[str, str], str]:
     return metadata, text[end + 5 :]
 
 
+class MissingImageSource(ValueError):
+    """The referenced image source is absent; the page can still render a placeholder."""
+
+
 def normalize_image_src(submission_dir: Path, raw_src: str) -> str:
     if re.match(r"^(?:https?:)?//", raw_src, re.I) or re.match(r"^(?:data|file|javascript):", raw_src, re.I):
         raise ValueError(f"remote or unsafe image source is not allowed: {raw_src}")
@@ -61,7 +65,7 @@ def normalize_image_src(submission_dir: Path, raw_src: str) -> str:
         raise ValueError(f"image source must be a relative local path: {raw_src}")
     image_path = submission_dir / pure.as_posix()
     if not image_path.exists():
-        raise ValueError(f"image source is missing: {raw_src}")
+        raise MissingImageSource(f"image source is missing: {raw_src}")
     return "../" + pure.as_posix()
 
 
@@ -287,7 +291,7 @@ def render_markdown_body(submission_dir: Path, markdown: str, language: str = "z
                     f"<figcaption>{alt}</figcaption>"
                     "</figure>"
                 )
-            except (ValueError, OSError) as exc:
+            except MissingImageSource as exc:
                 blocks.append(
                     '<figure class="proposal-figure proposal-figure-missing">'
                     f'<div class="missing-image" role="img" aria-label="{alt}">'
