@@ -6,17 +6,18 @@
   },
   "metrics": {
     "site_area_sqm": {
-      "status": "known",
+      "status": "provisional",
       "value": 11412825.386,
       "unit": "sqm",
       "source_files": [
         "geometry/site_boundary.geojson"
       ],
       "formula": "polygon_area(submitted_site_boundary)",
-      "confidence": "high",
+      "confidence": "low",
       "assumptions": [
-        "Trusted official boundary is present in the site package."
-      ]
+        "Provisional boundary; recalculate when official SITE_BOUNDARY GeoJSON is released."
+      ],
+      "recalculation_note": "When official SITE_BOUNDARY is released: replace geometry/site_boundary.geojson, recompute site_area_sqm and cascade to ratio metrics and land_use_composition."
     },
     "building_footprint_area_sqm": {
       "status": "known",
@@ -75,6 +76,17 @@
       "formula": "count(key_detailed_design_areas)",
       "confidence": "high",
       "assumptions": []
+    },
+    "land_use_composition": {
+      "status": "provisional",
+      "confidence": "low",
+      "value": {
+        "unknown": {
+          "area_sqm": 11412832.7,
+          "percentage": 100.0
+        }
+      },
+      "note": "Derived from land_use.geojson area_sqm_declared; provisional boundary."
     }
   }
 }
