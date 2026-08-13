@@ -58,7 +58,7 @@
       "path": "proposal.md",
       "role": "narrative",
       "required": true,
-      "sha256": "0cbb6c9ef90df339cbbd37d9e78f554b76d164b5acd3c8b69247dc50a6f37bd6"
+      "sha256": "beb13ae7b1b7a0c1be08a864e92c6e1743d0185050d32183182b1b5e027fa4f6"
     },
     {
       "path": "self_check.json",
